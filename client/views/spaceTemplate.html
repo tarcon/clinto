@@ -1,0 +1,21 @@
+<template name="SpaceTemplate">
+
+    {{> Head}}
+
+    <body>
+
+        <div class="clinto-space-header">
+            {{>Header}}
+        </div>
+
+        <div class="clinto-space-content">
+            {{> yield}}
+        </div>
+
+        <div class="mastfoot clinto-space-footer">
+            <div class="inner">
+                {{> yield "footer"}}
+            </div>
+        </div>
+    </body>
+</template>

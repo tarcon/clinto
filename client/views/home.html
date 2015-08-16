@@ -1,0 +1,37 @@
+<template name="Home">
+    <div class="clinto-cover-content">
+
+        <h1 class="cover-heading">Welcome to Clinto</h1>
+        <p class="lead">The crowd live interaction tool</p>
+
+        <p class="lead">
+            <a href="/create" class="btn btn-lg btn-default clinto-create-button">Create space</a>
+        </p>
+
+        <p class="lead">
+            OR
+        </p>
+
+        <p class="lead">
+            <form class="form-inline clinto-join-form">
+                <div class="form-group">
+                    <input class="form-control input-sm clinto-name-input" type="text" id="codeInput" placeholder="Code">
+                </div>
+                <button class="btn btn-default btn-sm" type="submit">Join a space</button>
+            </form>
+        </p>
+
+        {{#if hasActiveSpaces}}
+        <div class="clinto-space-overview-flyout hidden-xs hidden-sm">
+
+            <h5>Currently active spaces:</h5>
+            <ul>
+                {{#each this}}
+                    <li>{{name}}</li>
+                {{/each}}
+            </ul>
+        </div>
+        {{/if}}
+
+    </div>
+</template>

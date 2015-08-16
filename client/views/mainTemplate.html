@@ -1,0 +1,28 @@
+<template name="MainTemplate">
+
+    {{> Head}}
+
+    <body>
+
+        <div class="site-wrapper">
+
+            <div class="site-wrapper-inner">
+
+                <div class="cover-container">
+
+                  {{> Header}}
+
+                    <div class="inner cover clinto-content">
+                        {{> yield}}
+                    </div>
+
+                    <div class="mastfoot clinto-footer">
+                        <div class="inner">
+                            {{> yield "footer"}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</template>
