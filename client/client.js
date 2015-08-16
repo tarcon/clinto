@@ -1,3 +1,11 @@
+if (Meteor.isClient) {
+    Meteor.startup(function() {
+        Meteor.call("generateUserId", function (errors, result) {
+            Session.set("userId", result);
+        });
+    });
+}
+
 Template.Home.events({
 
     "submit .clinto-join-form": function (event){
@@ -34,41 +42,6 @@ Template.Create.events({
 
             $("#nameInput").val("");
         });
-    }
-});
-
-Template.spaceView.events({
-
-    "submit .clinto-issue-create-form": function (event){
-        event.preventDefault();
-
-        var issue = $("#issueInput").val();
-
-        Issues.insert({
-            spaceId: this._id,
-            issue: issue,
-            reviewed: false,
-            discarded: false
-        });
-
-        $("#issueInput").val("");
-    },
-
-    "click clinto-upvote-button": function (event) {
-
-    }
-});
-
-Template.spaceView.helpers({
-    findIssues: function () {
-        var issues = Issues.find({spaceId: this._id},{sort: {createdAt : -1}});
-        console.log(this._id);
-        console.log(issues.count());
-        return issues;
-    },
-
-    countIssues: function () {
-        return Issues.find({spaceId: this._id}).count();
     }
 });
 

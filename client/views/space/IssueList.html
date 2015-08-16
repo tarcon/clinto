@@ -1,0 +1,22 @@
+<template name="IssueList">
+
+    {{#if countIssues}}
+
+    <table class="table table-hover clinto-issue-list">
+        <thead>
+        <tr>
+            <th>Votes</th>
+            <th>Issue</th>
+            <th>Interact</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#each findIssues}}
+            {{> Issue}}
+        {{/each}}
+        </tbody>
+    </table>
+
+    {{/if}}
+
+</template>
