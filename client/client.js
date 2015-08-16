@@ -24,16 +24,16 @@ Template.Create.events({
 
         var name = $("#nameInput").val();
 
+        Meteor.call("generateCode", function (error, result) {
+            var newSpaceId = Spaces.insert({
+                name: name,
+                code: result
+            });
 
-        //todo: dont generate the code on the client
-        var newSpaceId = Spaces.insert({
-            name: name,
-            code: Spaces.generateCode()
+            Router.go("/space/" + newSpaceId);
+
+            $("#nameInput").val("");
         });
-
-        Router.go("/space/" + newSpaceId);
-
-        $("#nameInput").val("");
     }
 });
 
@@ -52,6 +52,10 @@ Template.spaceView.events({
         });
 
         $("#issueInput").val("");
+    },
+
+    "click clinto-upvote-button": function (event) {
+
     }
 });
 
